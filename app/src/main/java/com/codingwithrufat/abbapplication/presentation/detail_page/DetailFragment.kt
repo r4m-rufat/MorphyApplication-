@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
+import com.codingwithrufat.abbapplication.R
 import com.codingwithrufat.abbapplication.databinding.FragmentDetailBinding
 import com.codingwithrufat.abbapplication.utils.MorphyParcelableItem
 
@@ -34,6 +36,7 @@ class DetailFragment : Fragment() {
         _binding = FragmentDetailBinding.inflate(layoutInflater)
 
         setItems()
+        clickedBackButton()
 
         return binding.root
     }
@@ -49,6 +52,16 @@ class DetailFragment : Fragment() {
         binding.txtGender.text = morphy?.gender
         binding.txtLocationUrl.text = morphy?.location
         binding.txtCharacterUrl.text = morphy?.character
+
+    }
+
+    private fun clickedBackButton() {
+
+        binding.icBack.setOnClickListener {
+
+            Navigation.findNavController(binding.root).navigateUp()
+
+        }
 
     }
 

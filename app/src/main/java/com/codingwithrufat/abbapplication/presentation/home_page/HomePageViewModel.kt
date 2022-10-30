@@ -22,14 +22,39 @@ class HomePageViewModel @Inject constructor(
     val data: LiveData<NetworkResponse<MorphyResponse>>
         get() = morphyResponse
 
-    fun getAllData(queries: Map<String, String>) = viewModelScope.launch {
+    private val queryMap = MutableLiveData<HashMap<String, String>>(HashMap())
+    private val page = MutableLiveData(1)
 
-        repository.getAllData(queries).collect { response ->
+    fun getAllData() = viewModelScope.launch {
 
-            morphyResponse.value = response
+        queryMap.value?.let {
+            repository.getAllData(page.value!!, it).collect { response ->
 
+                morphyResponse.value = response
+
+            }
         }
 
+    }
+
+    fun updateResponseStateToLoading() {
+        morphyResponse.value = NetworkResponse.LOADING()
+    }
+
+    fun incrementPageNumber() {
+        page.value = page.value!! + 1
+    }
+
+    fun resetPaginationElements() {
+        page.value = 1
+    }
+
+    fun updateQueryMap(newQueryMap: HashMap<String, String>) {
+        queryMap.value = newQueryMap
+    }
+
+    fun updateQueryMapItem(key: String, value: String) {
+        queryMap.value?.set(key, value)
     }
 
 }

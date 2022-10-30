@@ -1,21 +1,23 @@
 package com.codingwithrufat.abbapplication.presentation.home_page
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codingwithrufat.abbapplication.R
 import com.codingwithrufat.abbapplication.network.model.ResultsItem
+import com.codingwithrufat.abbapplication.presentation.detail_page.DetailFragment
 import com.codingwithrufat.abbapplication.utils.MorphyParcelableItem
 
 class MorphyItemAdapter(
     private val context: Context,
-    private var list: List<ResultsItem?>,
-    private val listener: OnClickedItemListener
+    private var list: List<ResultsItem?>
 ) : RecyclerView.Adapter<MorphyItemAdapter.ViewHolder>() {
 
     fun updateList(newList: List<ResultsItem?>) {
@@ -38,7 +40,7 @@ class MorphyItemAdapter(
             .load(list[position]?.image)
             .into(holder.imgPoke)
 
-        holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener { view ->
 
             list[position]?.let {
                 val item = MorphyParcelableItem(
@@ -50,7 +52,9 @@ class MorphyItemAdapter(
                     it.url,
                     it.image
                 )
-                listener.onClickItem(item)
+                val bundle = Bundle()
+                bundle.putParcelable("item", item)
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_detailFragment, bundle)
             }
 
         }
@@ -64,16 +68,12 @@ class MorphyItemAdapter(
         return list.size
     }
 
-    inner class ViewHolder(item_view: View) : RecyclerView.ViewHolder(item_view) {
+    class ViewHolder(item_view: View) : RecyclerView.ViewHolder(item_view) {
         val name = item_view.findViewById(R.id.morphy_name) as TextView
         val status = item_view.findViewById(R.id.morphy_status) as TextView
         val species = item_view.findViewById(R.id.morphy_species) as TextView
         val gender = item_view.findViewById(R.id.morphy_gender) as TextView
         val imgPoke = item_view.findViewById(R.id.img_morphy) as ImageView
-    }
-
-    interface OnClickedItemListener {
-        fun onClickItem(item: MorphyParcelableItem)
     }
 
 }

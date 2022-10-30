@@ -38,6 +38,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/morphy_species"
             android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="14sp"
             android:layout_marginStart="5dp"
             android:textColor="@color/white"/>
@@ -47,6 +49,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/morphy_status"
             android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="14sp"
             android:layout_marginStart="5dp"
             android:textColor="@color/white"/>
@@ -56,6 +60,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/morphy_gender"
             android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="14sp"
             android:layout_marginStart="5dp"
             android:textColor="@color/white"/>

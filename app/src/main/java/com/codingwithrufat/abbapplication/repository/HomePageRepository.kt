@@ -5,5 +5,5 @@ import com.codingwithrufat.abbapplication.utils.NetworkResponse
 import kotlinx.coroutines.flow.Flow
 
 interface HomePageRepository {
-    suspend fun getAllData(queries: Map<String, String>): Flow<NetworkResponse<MorphyResponse>>
+    suspend fun getAllData(page: Int, queries: Map<String, String>): Flow<NetworkResponse<MorphyResponse>>
 }

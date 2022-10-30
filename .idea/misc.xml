@@ -4,12 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Files/ABBApplication/app/src/main/res/drawable/background_gray_border.xml" value="0.1845" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/drawable/background_spinner_filter.xml" value="0.1845" />
         <entry key="..\:/Android Files/ABBApplication/app/src/main/res/drawable/ic_back.xml" value="0.1845" />
         <entry key="..\:/Android Files/ABBApplication/app/src/main/res/drawable/ic_filter.xml" value="0.1845" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout-v28/layout_filter_card.xml" value="0.1875" />
         <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
-        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/fragment_detail.xml" value="0.152" />
         <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/layout_custom_dropdown_view_resource.xml" value="0.18645833333333334" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/layout_filter.xml" value="0.18645833333333334" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/layout_filter_card.xml" value="0.18645833333333334" />
         <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/layout_recyler_morphy_item.xml" value="0.125" />
+        <entry key="..\:/Android Files/ABBApplication/app/src/main/res/layout/layout_selected_spinner_item.xml" value="0.12552083333333333" />
       </map>
     </option>
   </component>

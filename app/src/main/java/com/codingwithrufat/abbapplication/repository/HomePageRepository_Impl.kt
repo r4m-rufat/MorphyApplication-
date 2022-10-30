@@ -13,16 +13,16 @@ class HomePageRepository_Impl @Inject constructor(
     private val service: RetrofitService
 ): HomePageRepository {
 
-    override suspend fun getAllData(queries: Map<String, String>) = flow {
+    override suspend fun getAllData(page: Int, queries: Map<String, String>) = flow {
 
-            val response = service.getMorphyResponse(queries)
+            val response = service.getMorphyResponse(page, queries)
 
             if (response.isSuccessful)
                 response.body()?.let {
                     emit(NetworkResponse.SUCCEED<MorphyResponse>(it))
                 }
             else
-                emit(NetworkResponse.ERROR<MorphyResponse>(response.message()))
+                emit(NetworkResponse.ERROR<MorphyResponse>(response.errorBody().toString()))
 
 
     }.catch {
