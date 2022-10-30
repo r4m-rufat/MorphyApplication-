@@ -186,6 +186,7 @@ class HomeFragment : Fragment() {
             queryMap["species"] = binding.speciesSpinner.selectedItem.toString().checkSpinnerItem()
             viewModel.updateQueryMap(queryMap)
             viewModel.updateResponseStateToLoading()
+            viewModel.resetPaginationElements()
             list = mutableListOf()
             morphyItemAdapter.updateList(list)
             viewModel.getAllData()
@@ -256,7 +257,7 @@ class HomeFragment : Fragment() {
                     val isTotalMoreThanVisible = totalItemCount >= PAGE_SIZE
 
                     val shouldPaginate =
-                        isNotLoadingAndLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible
+                        isNotLoadingAndLastPage && isAtLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
 
                     if (shouldPaginate) {
                         viewModel.incrementPageNumber()
