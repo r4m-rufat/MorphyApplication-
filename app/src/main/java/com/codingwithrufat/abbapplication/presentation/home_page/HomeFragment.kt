@@ -187,6 +187,7 @@ class HomeFragment : Fragment() {
             viewModel.updateQueryMap(queryMap)
             viewModel.updateResponseStateToLoading()
             viewModel.resetPaginationElements()
+            binding.searchView.setQuery("", true)
             list = mutableListOf()
             morphyItemAdapter.updateList(list)
             viewModel.getAllData()
